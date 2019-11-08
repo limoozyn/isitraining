@@ -1,0 +1,152 @@
+[
+  {
+    "Version": 1,
+    "Key": "171566",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Kiel",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "SH",
+      "LocalizedName": "Schleswig-Holstein"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "275941",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Kielce",
+    "Country": {
+      "ID": "PL",
+      "LocalizedName": "Poland"
+    },
+    "AdministrativeArea": {
+      "ID": "26",
+      "LocalizedName": "Holy Cross"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "424136",
+    "Type": "City",
+    "Rank": 55,
+    "LocalizedName": "Kien Luong",
+    "Country": {
+      "ID": "VN",
+      "LocalizedName": "Vietnam"
+    },
+    "AdministrativeArea": {
+      "ID": "47",
+      "LocalizedName": "Kiến Giang"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "353507",
+    "Type": "City",
+    "Rank": 55,
+    "LocalizedName": "Kien An",
+    "Country": {
+      "ID": "VN",
+      "LocalizedName": "Vietnam"
+    },
+    "AdministrativeArea": {
+      "ID": "HP",
+      "LocalizedName": "Haiphong"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "170437",
+    "Type": "City",
+    "Rank": 63,
+    "LocalizedName": "Kierspe",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "NW",
+      "LocalizedName": "North Rhine-Westphalia"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "235426",
+    "Type": "City",
+    "Rank": 65,
+    "LocalizedName": "Kiela",
+    "Country": {
+      "ID": "ML",
+      "LocalizedName": "Mali"
+    },
+    "AdministrativeArea": {
+      "ID": "3",
+      "LocalizedName": "Sikasso"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "56259",
+    "Type": "City",
+    "Rank": 65,
+    "LocalizedName": "Kieke",
+    "Country": {
+      "ID": "TD",
+      "LocalizedName": "Chad"
+    },
+    "AdministrativeArea": {
+      "ID": "SA",
+      "LocalizedName": "Salamat"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "176762",
+    "Type": "City",
+    "Rank": 73,
+    "LocalizedName": "Kiefersfelden",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "BY",
+      "LocalizedName": "Bavaria"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "352121",
+    "Type": "City",
+    "Rank": 75,
+    "LocalizedName": "Kie",
+    "Country": {
+      "ID": "BF",
+      "LocalizedName": "Burkina Faso"
+    },
+    "AdministrativeArea": {
+      "ID": "01",
+      "LocalizedName": "Boucle du Mouhoun"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "53482",
+    "Type": "City",
+    "Rank": 75,
+    "LocalizedName": "Kieke",
+    "Country": {
+      "ID": "TD",
+      "LocalizedName": "Chad"
+    },
+    "AdministrativeArea": {
+      "ID": "GR",
+      "LocalizedName": "Guéra"
+    }
+  }
+]

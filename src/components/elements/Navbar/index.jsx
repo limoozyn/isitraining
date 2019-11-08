@@ -1,9 +1,7 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+
+import {AppBar, Toolbar, Typography, IconButton} from "@material-ui/core";
 import {Link} from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
 import BeachAccessIcon from "@material-ui/icons/BeachAccess";
 import {useStyles} from "./styles";
 

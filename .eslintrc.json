@@ -1,0 +1,347 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    //"jsdoc",
+    "sonarjs",
+    "import",
+    "promise",
+    "no-use-extend-native"
+    // "redux-saga"
+  ],
+  "globals": {
+    "console": "off",
+    "require": "off",
+    "URLSearchParams": "off",
+    "Intl": "off",
+    "setInterval": "off",
+    "clearInterval": "off",
+    "window": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/core-modules": ["styled-jsx", "styled-jsx/css", "redux-saga/effects"]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    // Uncomment for jsdoc
+    // "plugin:jsdoc/recommended"
+    "plugin:sonarjs/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:promise/recommended",
+    "plugin:redux-saga/recommended"
+  ],
+  "rules": {
+    // variables
+    "prefer-const": 1,
+    "no-const-assign": [2],
+    "no-var": 1,
+    "no-new-object": 1,
+    "no-new-wrappers": 1,
+    "no-undef": [1],
+    "no-unused-vars": [1, {"vars": "all", "args": "none"}],
+    "no-unused-expressions": [1],
+    "no-undefined": [1],
+    "one-var": [1, "never"],
+    "no-multi-assign": [1],
+    "no-plusplus": [1, {"allowForLoopAfterthoughts": true}],
+    "operator-linebreak": [1, "after", {"overrides": {"?": "before", ":": "before"}}],
+    "no-self-assign": [1],
+    // strings
+    "quote-props": [1, "as-needed", {"numbers": true}],
+    "no-array-constructor": 1,
+    "array-callback-return": 1,
+    "prefer-destructuring": 1,
+    "quotes": [1, "double", {"avoidEscape": true, "allowTemplateLiterals": true}],
+    "prefer-template": [1],
+    "template-curly-spacing": [1, "never"],
+    "no-eval": [2],
+    "no-useless-escape": [1],
+    //functions
+    "wrap-iife": [1, "outside"],
+    "no-loop-func": [1],
+    "prefer-rest-params": [1],
+    "no-new-func": [1],
+    "space-before-function-paren": [
+      1,
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "space-before-blocks": [1, "always"],
+    "no-param-reassign": [1],
+    "prefer-spread": [1],
+    "function-paren-newline": [1, "multiline"],
+    "prefer-arrow-callback": [1],
+    "arrow-spacing": [1],
+    "arrow-parens": [1, "always"],
+    "max-params": [1, {"max": 3}],
+    "max-depth": [1, {"max": 3}],
+    "max-lines": [1, {"max": 300, "skipBlankLines": true, "skipComments": true}],
+    "max-nested-callbacks": [1, {"max": 3}],
+    "no-inner-declarations": [1],
+    //"arrow-body-style": [1, "as-needed", {"requireReturnForObjectLiteral": true}],
+    "no-confusing-arrow": [1, {"allowParens": true}],
+    // classes and constructors
+    "no-useless-constructor": [1],
+    "no-dupe-class-members": [1],
+    "max-classes-per-file": [1],
+    // modules
+    "no-duplicate-imports": [1],
+    // iterators
+    "no-iterator": [1],
+    // properties
+    "dot-notation": [1],
+    //Comparison Operators & Equality
+    "eqeqeq": [1, "always", {"null": "ignore"}],
+    "no-case-declarations": [1],
+    "no-nested-ternary": [1],
+    "no-mixed-operators": [1],
+    "no-extra-boolean-cast": [0],
+    // Blocks
+    "nonblock-statement-body-position": [1],
+    "brace-style": [1],
+    "no-else-return": [1],
+    "no-empty": [1],
+    "no-fallthrough": [1],
+    "default-case": [1],
+    // Comments
+    "spaced-comment": [1],
+    // Whitespace
+    //    "indent": [
+    //      1,
+    //      2,
+    //      {
+    //        "SwitchCase": 1,
+    //        "ObjectExpression": "first"
+    //      }
+    //    ],
+    "keyword-spacing": [1],
+    "space-infix-ops": [1],
+    "newline-per-chained-call": [1],
+    "no-whitespace-before-property": [1],
+    "padded-blocks": [1, "never"],
+    "space-in-parens": [1, "never"],
+    "array-bracket-spacing": [1, "never"],
+    "object-curly-spacing": [1, "never"],
+    "max-len": [1, {"code": 120, "ignoreStrings": true, "ignoreUrls": true}],
+    "no-multiple-empty-lines": [1, {"max": 2, "maxEOF": 0, "maxBOF": 0}],
+    "max-statements-per-line": [1, {"max": 1}],
+    "block-spacing": [1, "always"],
+    "comma-spacing": [1],
+    "computed-property-spacing": [1, "never"],
+    "func-call-spacing": [1, "never"],
+    "key-spacing": [1],
+    "no-trailing-spaces": [1],
+    // Commas
+    "comma-style": [1, "last"],
+    "comma-dangle": [
+      1,
+      "always-multiline",
+      {
+        "imports": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ],
+    // Semicolons
+    "semi": ["error", "always"],
+    // Naming Conventions
+    "id-length": [1, {"exceptions": ["i", "j", "x", "y"]}],
+    "camelcase": [1, {"properties": "never", "ignoreDestructuring": true}],
+    "no-underscore-dangle": [1],
+
+    "no-use-before-define": [2, {"functions": false}],
+    "no-magic-numbers": [1, {"ignore": [0, 1]}],
+    "no-undef-init": [1],
+    "no-shadow": [1],
+    "no-restricted-syntax": [1, {"selector": "ExportDefaultDeclaration", "message": "Prefer named exports"}],
+    "no-console": [1, {"allow": ["warn", "error"]}],
+    "no-extra-bind": [1],
+    "no-extra-label": [1],
+    "no-global-assign": [1],
+    "no-implicit-coercion": [1],
+    "no-useless-call": [1],
+    "no-multi-spaces": [1],
+    "no-extend-native": [1],
+    // Node
+    "no-process-env": [1],
+
+    // REACT
+    // https://github.com/airbnb/javascript/tree/master/react
+    // https://github.com/yannickcr/eslint-plugin-react
+    "react/no-multi-comp": [1, {"ignoreStateless": true}],
+    "react/jsx-curly-spacing": [1, "never"],
+    "react/no-array-index-key": [1],
+    "react/prefer-stateless-function": [1, {"ignorePureComponents": true}],
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "react/jsx-pascal-case": [1, {"ignore": ["TD", "TR", "TH"]}],
+    "react/jsx-closing-bracket-location": [1],
+    "jsx-quotes": [1],
+    // react/prop-types should be 1
+    "react/prop-types": [0],
+    "react/jsx-tag-spacing": [1],
+    "react/jsx-wrap-multilines": [1],
+    "react/self-closing-comp": [1],
+    "react/require-render-return": [1],
+    // react/jsx-handler-names should be 1
+    "react/jsx-handler-names": [0],
+    // react/jsx-handler-names should be 4
+    "react/jsx-max-depth": [1, {"max": 11}],
+    "react/jsx-no-undef": [1],
+    // react/jsx-handler-names should be 1
+    "react/jsx-one-expression-per-line": [0, {"allow": "single-child"}],
+    "react/no-unused-state": [1],
+    "react/button-has-type": [1],
+    "react/jsx-no-comment-textnodes": [1],
+    "react/jsx-no-target-blank": [1],
+    "react/jsx-sort-default-props": [1],
+    "react/jsx-sort-props": [0],
+    "react/jsx-curly-brace-presence": [1, {"props": "never", "children": "never"}],
+    "react/no-access-state-in-setstate": [1],
+    "react/no-deprecated": [1],
+    "react/no-find-dom-node": [1],
+    "react/no-string-refs": [1],
+    "react/no-this-in-sfc": [1],
+    "react/no-typos": [1],
+    "react/no-unescaped-entities": [1],
+    "react/sort-comp": [
+      1,
+      {
+        "order": [
+          "type-annotations",
+          "instance-variables",
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "rendering"
+        ],
+        "groups": {"rendering": ["/^render.+$/", "render"]}
+      }
+    ],
+    "react/jsx-no-duplicate-props": [1],
+    // react/jsx-no-literals should be 1
+    "react/jsx-no-literals": [0],
+    "react/jsx-uses-react": [1],
+    "react/jsx-uses-vars": [1],
+    "react/no-direct-mutation-state": [1],
+    "react/no-redundant-should-component-update": [1],
+    "react/no-render-return-value": [1],
+    "react/no-unsafe": [1],
+    "react/no-unused-prop-types": [1],
+    "react/no-will-update-set-state": [1],
+    "react/react-in-jsx-scope": [1],
+    "react/require-default-props": [1],
+
+    // react hooks
+    // This ESLint plugin enforces the Rules of Hooks.
+    // https://www.npmjs.com/package/eslint-plugin-react-hooks
+    "react-hooks/rules-of-hooks": [1],
+    "react-hooks/exhaustive-deps": [1],
+
+    // ESLint rules for redux-saga.
+    // https://www.npmjs.com/package/eslint-plugin-redux-saga
+    "redux-saga/no-unhandled-errors": [1],
+    "redux-saga/yield-effects": [1],
+    "redux-saga/no-yield-in-race": [1],
+
+    // Enforce best practices for JavaScript promises.
+    // https://www.npmjs.com/package/eslint-plugin-promise
+    "promise/catch-or-return": [1, {"allowThen": true}],
+    "promise/no-return-wrap": [1, {"allowReject": true}],
+    "promise/always-return": [1],
+    "promise/param-names": [1],
+    "promise/no-native": "off",
+    "promise/no-nesting": [1],
+    "promise/no-promise-in-callback": [1],
+    "promise/no-callback-in-promise": [1],
+    "promise/avoid-new": [1],
+    "promise/no-new-statics": [1],
+    "promise/no-return-in-finally": [1],
+    "promise/valid-params": [1],
+
+    // to prevent use of extended native objects
+    "no-use-extend-native/no-use-extend-native": [1],
+
+    // checker for accessibility rules on JSX elements.
+    // https://www.npmjs.com/package/eslint-plugin-jsx-a11y
+    "jsx-a11y/alt-text": [1],
+    "jsx-a11y/img-redundant-alt": [1],
+    "jsx-a11y/no-access-key": [1],
+    "jsx-a11y/label-has-for": [1],
+    "jsx-a11y/click-events-have-key-events": [0],
+    "jsx-a11y/no-noninteractive-element-interactions": [1],
+    "jsx-a11y/no-static-element-interactions": [1],
+    "jsx-a11y/mouse-events-have-key-events": [1],
+
+    // SonarJS rules for ESLint to detect bugs and suspicious patterns in your code
+    // https://github.com/SonarSource/eslint-plugin-sonarjs
+    // https://www.npmjs.com/package/eslint-plugin-sonarjs
+    "sonarjs/no-identical-expressions": [0],
+    "sonarjs/no-identical-functions": [1],
+    "sonarjs/cognitive-complexity": [1],
+    "sonarjs/no-all-duplicated-branches": [1],
+    "sonarjs/no-element-overwrite": [1],
+    "sonarjs/no-extra-arguments": [1],
+    "sonarjs/no-identical-conditions": [1],
+    "sonarjs/no-one-iteration-loop": [1],
+    "sonarjs/no-use-of-empty-return-value": [1],
+    "sonarjs/no-duplicated-branches": [1],
+    "sonarjs/max-switch-cases": [1],
+    "sonarjs/no-small-switch": [1],
+    "sonarjs/no-collapsible-if": [1],
+    "sonarjs/no-duplicate-string": [1],
+    "sonarjs/no-inverted-boolean-check": [1],
+    "sonarjs/no-useless-catch": [1],
+    "sonarjs/no-redundant-boolean": [1],
+    "sonarjs/prefer-immediate-return": [1],
+    "sonarjs/prefer-single-boolean-return": [1],
+    "sonarjs/prefer-while": [0],
+
+    // ESLint plugin with rules that help validate proper imports.
+    // https://github.com/benmosher/eslint-plugin-import
+    // https://www.npmjs.com/package/eslint-plugin-import
+    "import/no-unresolved": [1],
+    "import/named": [1],
+    "import/default": [1],
+    "import/namespace": [1],
+    "import/no-restricted-paths": [1],
+    "import/no-absolute-path": [1],
+    "import/no-dynamic-require": [1],
+    "import/no-internal-modules": [0],
+    "import/no-webpack-loader-syntax": [1],
+    "import/no-self-import": [1],
+    "import/no-cycle": [1],
+    "import/no-useless-path-segments": [1],
+    "import/no-relative-parent-imports": [0],
+    "import/no-named-as-default": [1],
+    "import/no-named-as-default-member": [1],
+    "import/no-deprecated": [1],
+    "import/no-mutable-exports": [1],
+    "import/first": [1],
+    //"import/exports-last": [0],
+    "import/order": [
+      1,
+      {
+        "groups": ["external", "builtin", ["index", "sibling"], ["parent", "internal"]],
+        "newlines-between": "always"
+      }
+    ],
+    "import/newline-after-import": [1, {"count": 1}],
+    "import/no-named-default": [1],
+    "import/no-default-export": [1],
+    "import/no-anonymous-default-export": [1]
+  }
+}
