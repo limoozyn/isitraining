@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {TextField, Paper, Grid, Typography} from "@material-ui/core";
+import {Paper, Grid, Typography} from "@material-ui/core";
 import CurrentWeather from "components/lib/CurrentWeather";
+import CitySearch from "components/lib/CitySearch";
 import ForecastWeather from "components/lib/ForecastWeather";
 import AddToFavorites from "components/lib/AddToFavorites";
-import {seachFieldTitle} from "./constants";
 import {useStyles} from "./styles";
 import * as currentConditions from "temp/current_conditions.json";
 import * as fiveDaysForecast from "temp/five_days_forecast.json";
@@ -48,14 +48,7 @@ export default function Home() {
   };
   return (
     <div className={classes.container}>
-      <TextField
-        id="outlined-search"
-        label={seachFieldTitle}
-        type="search"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-      />
+      <CitySearch />
       <Paper className={classes.mainPane} elevation={3}>
         <Grid container direction="column" justify="space-around" alignItems="center" spacing={7}>
           <Grid container item xs={12} justify="space-around" alignItems="center">
