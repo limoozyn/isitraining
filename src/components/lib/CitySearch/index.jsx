@@ -1,14 +1,14 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import {TextField} from "@material-ui/core";
 import {Autocomplete} from "@material-ui/lab";
 import {createFilterOptions} from "@material-ui/lab/Autocomplete";
-import debounce from "lodash.debounce";
 import useDebounce from "helpers/use-debounce";
 import {useStyles} from "./styles";
 import {seachFieldTitle} from "./constants";
 import {getCityAutocomplete} from "services";
+import {defaultCity} from "constants/city";
 
-function CitySearch() {
+function CitySearch(props) {
   const classes = useStyles();
   const [searchString, setSearchString] = React.useState("");
   const [cityAutocomplete, setCityAutocomplete] = React.useState([]);
@@ -19,7 +19,7 @@ function CitySearch() {
     if (debouncedSearchString) {
       setIsSearching(true);
       async function fetchData() {
-        const results = await getCityAutocomplete(searchString);
+        const results = await getCityAutocomplete(debouncedSearchString);
         setIsSearching(false);
         results ? setCityAutocomplete(results) : setCityAutocomplete([]);
       }
@@ -34,12 +34,10 @@ function CitySearch() {
   });
 
   const renderInput = (params) => {
-    console.log("params", params);
     const {
       inputProps: {onChange},
     } = params;
     const changeHandler = (e) => {
-      console.log("changeHandler fired with: ", e.target.value);
       setSearchString(e.target.value);
       onChange(e);
     };
@@ -51,7 +49,11 @@ function CitySearch() {
   return (
     <Autocomplete
       options={cityAutocomplete}
-      // options={cityAutocomplete.default}
+      onChange={(e, v) => {
+        const {LocalizedName = defaultCity.LocalizedName, Key = defaultCity.Key} = v ? v : {};
+        props.onChoose({LocalizedName, Key});
+      }}
+      loading={isSearching}
       getOptionLabel={(option) => option.LocalizedName}
       style={{width: 300}}
       clearOnEscape

@@ -9,17 +9,13 @@ export const useStyles = makeStyles((theme) =>
       alignItems: "center",
       justifyContent: "space-around",
     },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: "200px",
-      height: "30px",
-    },
     mainPane: {
+      marginTop: "30px",
       width: "600px",
       height: "400px",
+      paddingTop: "30px",
     },
-    dailyForecastWrapper: {
+    citiesWeatherWrapper: {
       display: "flex",
       justifyContent: "space-around",
     },
