@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/isitraining/static/css/main.b100e6da.chunk.css",
+    "main.js": "/isitraining/static/js/main.51069a63.chunk.js",
+    "main.js.map": "/isitraining/static/js/main.51069a63.chunk.js.map",
+    "runtime-main.js": "/isitraining/static/js/runtime-main.370a87a0.js",
+    "runtime-main.js.map": "/isitraining/static/js/runtime-main.370a87a0.js.map",
+    "static/js/2.2f32c074.chunk.js": "/isitraining/static/js/2.2f32c074.chunk.js",
+    "static/js/2.2f32c074.chunk.js.map": "/isitraining/static/js/2.2f32c074.chunk.js.map",
+    "index.html": "/isitraining/index.html",
+    "precache-manifest.cdbfa3dd0a9f8854a668c2d4700de06a.js": "/isitraining/precache-manifest.cdbfa3dd0a9f8854a668c2d4700de06a.js",
+    "service-worker.js": "/isitraining/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/isitraining/static/css/main.b100e6da.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.370a87a0.js",
+    "static/js/2.2f32c074.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.51069a63.chunk.js"
+  ]
+}
