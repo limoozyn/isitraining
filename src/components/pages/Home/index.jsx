@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import {useQuery} from "react-query";
+
 import {Paper, Grid, Typography} from "@material-ui/core";
 import WeatherWidget from "components/lib/WeatherWidget";
 import CitySearch from "components/lib/CitySearch";
@@ -27,28 +29,41 @@ export default function Home() {
     setIsFavorite(!favorite);
   };
 
+  const {isLoading: fdfIsLoading, error: fdfError} = useQuery(
+    city && ["fiveDaysForecast", {locationKey: city.Key, metric}],
+    getFiveDaysForecast,
+    {
+      staleTime: 3600000,
+      onSuccess: (data) => {
+        const flattenedFiveDaysForecast = flattenFiveDaysForecast(data.DailyForecasts);
+        setFiveDaysForecast(flattenedFiveDaysForecast);
+      },
+    }
+  );
+
+  const {isLoading: ccIsLoading, error: ccError} = useQuery(
+    city && ["currentConditions", {locationKey: city.Key}],
+    getCurrentConditions,
+    {
+      staleTime: 3600000,
+      onSuccess: (data) => {
+        const flattenedCurrentConditions = flattenCurrentConditions(data);
+        setCurrentConditions(flattenedCurrentConditions);
+      },
+    }
+  );
+
   const cityChooseHandler = async (cityObject) => {
     if (isEmptyObject(cityObject)) {
       cityObject = defaultCity;
     }
     setCity(cityObject);
-    // Get and display current conditions
-    const NewCurrentConditions = await getCurrentConditions(cityObject.Key);
-    // TODO: Think about how to have default Tel Aviv conditions data
-    if (!NewCurrentConditions || !NewCurrentConditions.length) return;
-    const flattenedCurrentConditions = flattenCurrentConditions(NewCurrentConditions);
-    setCurrentConditions(flattenedCurrentConditions);
-    // Get and display 5 days forecast
-    const NewFiveDaysForecast = await getFiveDaysForecast({locationKey: cityObject.Key, metric});
-    if (
-      !NewFiveDaysForecast ||
-      isEmptyObject(NewFiveDaysForecast) ||
-      !NewFiveDaysForecast.hasOwnProperty("DailyForecasts")
-    )
-      return;
-    console.log("NewFiveDaysForecast", NewFiveDaysForecast);
-    const flattenedFiveDaysForecast = flattenFiveDaysForecast(NewFiveDaysForecast.DailyForecasts);
-    setFiveDaysForecast(flattenedFiveDaysForecast);
+  };
+
+  const renderWeatherText = () => {
+    if (ccIsLoading) return "Loading...";
+    if (!isEmptyObject(ccError) && ccError.hasOwnProperty("message")) return ccError.message;
+    return <Typography variant="h2">{currentConditions.WeatherText}</Typography>;
   };
   return (
     <div className={classes.container}>
@@ -63,6 +78,8 @@ export default function Home() {
                 weatherText={currentConditions.WeatherText}
                 value={currentConditions.TempValue}
                 unit={currentConditions.Unit}
+                isLoading={ccIsLoading}
+                error={ccError}
               />
             </Grid>
             <Grid item xs={3}>
@@ -70,10 +87,10 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h2">{currentConditions.WeatherText}</Typography>
+            {renderWeatherText()}
           </Grid>
           <Grid item xs={12} className={classes.dailyForecastWrapper}>
-            <FiveDaysForecastWrapper fiveDaysForecast={fiveDaysForecast} />
+            <FiveDaysForecastWrapper fiveDaysForecast={fiveDaysForecast} isLoading={fdfIsLoading} error={fdfError} />
           </Grid>
         </Grid>
       </Paper>

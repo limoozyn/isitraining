@@ -3,7 +3,11 @@ import ForecastWeather from "components/lib/ForecastWeather";
 import isEmptyObject from "helpers/isEmptyObject";
 
 export default function FiveDaysForecastWrapper(props) {
-  const {fiveDaysForecast} = props;
-  if (isEmptyObject(fiveDaysForecast)) return "Loading...";
-  else return fiveDaysForecast.map((dayForecast) => <ForecastWeather key={dayForecast.Date} forecast={dayForecast} />);
+  const {fiveDaysForecast, isLoading, error} = props;
+  if (isLoading) return "Loading...";
+  if (!isEmptyObject(error) && error.hasOwnProperty("message")) return error.message;
+  else
+    return fiveDaysForecast.length
+      ? fiveDaysForecast.map((dayForecast) => <ForecastWeather key={dayForecast.Date} forecast={dayForecast} />)
+      : null;
 }

@@ -43,7 +43,7 @@ export const getCityAutocomplete = async (searchString) => {
   return null;
 };
 
-export const getCurrentConditions = async (locationKey) => {
+export const getCurrentConditions = async ({locationKey}) => {
   const params = getRequestStringDataQuery({apikey});
   try {
     const response = await axios.get(

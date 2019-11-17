@@ -12,7 +12,6 @@ export default function Favorites() {
   const [favoriteWeatherData, setFavoriteWeatherData] = useState([]);
   useEffect(() => {
     const favoritesArray = favoritesStorage.get();
-    console.log("favoritesArray", favoritesArray);
     const getData = async () => {
       return Promise.all(favoritesArray.map((city) => fillFavoriteCitiesWithCurrentWeather(city)));
     };
@@ -23,8 +22,6 @@ export default function Favorites() {
 
   async function fillFavoriteCitiesWithCurrentWeather(city) {
     const cityData = await getCurrentConditions(city.Key);
-
-    // const { data, isLoading, error } = useQuery([`getCurrentConditions${city.Key}`, city.Key], fetchTodoList)
     const flattenedCityData = flattenCurrentConditions(cityData);
     return {...flattenedCityData, name: city.LocalizedName};
   }
