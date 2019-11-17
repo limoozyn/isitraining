@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {useQuery} from "react-query";
 import {Paper, Grid, Typography} from "@material-ui/core";
 import favoritesStorage from "helpers/favoritesStorage";
 import flattenCurrentConditions from "helpers/flattenCurrentConditions";
@@ -8,25 +9,33 @@ import WeatherWidget from "components/lib/WeatherWidget";
 
 export default function Favorites() {
   const classes = useStyles();
-  const [favoriteWeaterData, setFavoriteWeaterData] = useState([]);
+  const [favoriteWeatherData, setFavoriteWeatherData] = useState([]);
   useEffect(() => {
-    // const newFavoriteWeatherData = [];
-    setFavoriteWeaterData(favoritesStorage.get().map(async (city) => fillFavoriteCitiesWithCurrentWeather(city)));
+    const favoritesArray = favoritesStorage.get();
+    console.log("favoritesArray", favoritesArray);
+    const getData = async () => {
+      return Promise.all(favoritesArray.map((city) => fillFavoriteCitiesWithCurrentWeather(city)));
+    };
+    getData().then((data) => {
+      setFavoriteWeatherData(data);
+    });
   }, []);
 
   async function fillFavoriteCitiesWithCurrentWeather(city) {
     const cityData = await getCurrentConditions(city.Key);
+
+    // const { data, isLoading, error } = useQuery([`getCurrentConditions${city.Key}`, city.Key], fetchTodoList)
     const flattenedCityData = flattenCurrentConditions(cityData);
-    console.log("{...flattenedCityData, name: city.LocalizedName}", {...flattenedCityData, name: city.LocalizedName});
     return {...flattenedCityData, name: city.LocalizedName};
   }
-
+  // if(isLoading) return ('Loading');
+  // if(error) return (`${error}`);
   return (
-    favoriteWeaterData.length && (
+    favoriteWeatherData.length && (
       <div className={classes.container}>
         <Paper className={classes.mainPane} elevation={3}>
           <Grid item xs={12} className={classes.citiesWeatherWrapper}>
-            {favoriteWeaterData.map((city) => (
+            {favoriteWeatherData.map((city) => (
               <WeatherWidget
                 city={city.name}
                 weatherIcon={city.WeatherIcon}

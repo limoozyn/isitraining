@@ -26,6 +26,7 @@ export default function Home() {
     favorite ? favoritesStorage.remove(city) : favoritesStorage.add(city);
     setIsFavorite(!favorite);
   };
+
   const cityChooseHandler = async (cityObject) => {
     if (isEmptyObject(cityObject)) {
       cityObject = defaultCity;

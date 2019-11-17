@@ -1,6 +1,7 @@
-export default function flattentCurrentConditions(cc) {
+export default function flattenCurrentConditions(cc) {
   const result = {};
-  if (!cc) return result;
+
+  if (!cc || !cc[0]) return result;
   const {
     WeatherIcon,
     WeatherText,

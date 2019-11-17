@@ -11,7 +11,7 @@ export default function WeatherWidget(props) {
     return null;
   }
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} key={city}>
       <img src={weatherIconUrl(weatherIcon)} alt={weatherText} />
       <div className={classes.info}>
         <Typography component="span">{city}</Typography>
